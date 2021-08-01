@@ -30,6 +30,8 @@
             left: 0;
             right: 0;
             height: auto;
+            border-left: 10px solid var(--primary-color);
+            border-right: 10px solid var(--primary-color);
         }
 
         @-webkit-keyframes rotate {
@@ -201,6 +203,29 @@
             color: var(--primary-color);
             font-size: 90px;
             padding-left: 15px;
+            cursor: pointer;
+        }
+
+        .underline {
+            position: relative;
+        }
+
+        .underline::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 10px;
+            background-color: #000;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .underline:hover::before {
+            visibility: visible;
+            width: 100%;
         }
 
         .about-us .about-text {
@@ -220,10 +245,6 @@
             text-align: justify;
             border-left: 2px solid var(--primary-color);
             padding-left: 10px;
-        }
-
-        .academics {
-            background: var(--primary-color);
         }
 
         .about-facts {
@@ -261,6 +282,62 @@
         .about-facts .facts-section .fact-section-value .fact-key,
         .about-facts .facts-section .fact-section-value .fact-value {
             font-size: 18px;
+        }
+
+        .academics-top {
+            padding-top: -210px;
+            margin-top: -210px;
+        }
+
+        .academics-bg {
+            background-image: url(/images/bg.svg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .academics {
+            margin-top: -10px;
+            padding-bottom: 30px;
+        }
+
+        .academics .academics-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 6px 10px;
+            text-align: center;
+        }
+
+        .academics .academics-title:hover {
+            color: white;
+        }
+
+        .academics .academics-cards {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+            padding: 6px 10px;
+        }
+
+        .academics .academics-cards .card {
+            padding: 6px 10px;
+            border-radius: 18px;
+            /* background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light); */
+            background: rgba(255, 255, 255, 0.20);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            height: auto;
+            width: 250px;
+        }
+
+        .academics .academics-cards .card:hover {
+            box-shadow: none;
         }
     </style>
 
@@ -399,7 +476,7 @@
     </section>
     <section id="aboutUs" class="about-us">
         <div class="about-text">
-            <span class="about-title">ABOUT MIT</span>
+            <span class="about-title underline">ABOUT MIT</span>
             <div class="big-text">
                 The MIT community is driven by a shared purpose: to make a better world through education, research, and
                 innovation. We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with numbers,
@@ -524,8 +601,149 @@
             </div>
         </div>
     </section>
-    <section id="academics" class="academics">
-        
+    <section class="academics-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="var(--primary-color)" fill-opacity="1"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+    <section id="academics" class="academics academics-bg">
+        <div class="academics-title">Academics</div>
+        <div class="academics-cards">
+            <div class="card">
+                <div class="card-title">Schools, Departments & the College</div>
+                <div class="card-body">
+                    <div class="content">
+                        <ol>
+                            <li>
+                                <a href="#"> Departments by School </a>
+                            </li>
+                            <li>
+                                <a href="#">School of Architecture and Planning</a>
+                            </li>
+                            <li>
+                                <a href="#">School of Engineering</a>
+                            </li>
+                            <li>
+                                <a href="#">School of Humanities, Arts, and Social Sciences</a>
+                            </li>
+                            <li>
+                                <a href="#">MIT Sloan School of Management</a>
+                            </li>
+                            <li>
+                                <a href="#">School of Science</a>
+                            </li>
+                            <li>
+                                <a href="#">MIT Bangalore College of Computing</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="more-btn">Read More</div>
+                    <div class="hidden-content">Across MIT, faculty help set the global standard of excellence in their
+                        disciplines: They are pioneering scholars who love to teach. Deeply engaged in practice, they
+                        topple conventional walls between fields in the push for deeper understanding and fresh ideas.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Teaching & Learning</div>
+                <div class="card-body">
+                    <div class="content">
+                        <ol>
+                            <li>
+                                <a href="#">Registrar’s Office</a>
+                            </li>
+                            <li>
+                                <a href="#">Course Catalog (MIT Bulletin)</a>
+                            </li>
+                            <li>
+                                <a href="#">Office of the First Year</a>
+                            </li>
+                            <li>
+                                <a href="#">Office of Graduate Education</a>
+                            </li>
+                            <li>
+                                <a href="#">Office of Experiential Learning
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">Student Resources</a>
+                            </li>
+                            <li>
+                                <a href="#">Teaching + Learning Lab</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="more-btn">Read More</div>
+                    <div class="hidden-content">Our campus is a workshop for inventing the future and we are all
+                        apprentices, learning from each other as we go. Because we like to make things, and we like to
+                        make an impact, iconic courses like 2.009 emphasize designing, inventing, collaborating, and
+                        translating students’ expertise to reach the world. </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Open Learning</div>
+                <div class="card-body">
+                    <div class="content">
+                        <ol>
+                            <li>
+                                <a href="#">MITx</a>
+                            </li>
+                            <li>
+                                <a href="#">First-year STEM Classes from MIT</a>
+                            </li>
+                            <li>
+                                <a href="#">OpenCourseWare</a>
+                            </li>
+                            <li>
+                                <a href="#">MITx Micromasters</a>
+                            </li>
+                            <li>
+                                <a href="#">Open Learning</a>
+                            </li>
+                            <li>
+                                <a href="#">Residential Digital Innovations</a>
+                            </li>
+                            <li>
+                                <a href="#">Podcasts</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="more-btn">Read More</div>
+                    <div class="hidden-content">MIT is pioneering new ways of teaching and learning, on our campus and
+                        around the world, by inventing and leveraging digital technologies. </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">Professional & Executive Education</div>
+                <div class="card-body">
+                    <div class="content">
+                        <ol>
+                            <li>
+                                <a href="#">Professional & Executive Learning</a>
+                            </li>
+                            <li>
+                                <a href="#">MIT Professional Education – School of Engineering</a>
+                            </li>
+                            <li>
+                                <a href="#">Sloan School of Management Executive Education</a>
+                            </li>
+                            <li>
+                                <a href="#">MIT xPRO</a>
+                            </li>
+                            <li>
+                                <a href="#">Bootcamps</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="more-btn">Read More</div>
+                    <div class="hidden-content">For executives, managers, entrepreneurs, and technical professionals
+                        eager to tap fresh thinking and new research from MIT, we offer dozens of executive and
+                        professional programs. </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="facilities" class="facilities">Facilities</section>
     <section id="upcoming" class="upcoming">Upcoming</section>
@@ -533,6 +751,9 @@
     <section id="hallOfFame" class="hallOfFame">Hall Of Fame</section>
     <section id="faq" class="faq">FAQ</section>
     <section id="footer" class="footer">Footer</section>
+    <div class="link-background">
+        <a href="" class="left">Hover Over Me</a>
+    </div>
 </body>
 
 <script>
