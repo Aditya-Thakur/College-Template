@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Haldia Institute Of Technology</title>
+    <title>Mysore Institute Of Technology</title>
     <style>
         * {
             /* --primary-color: #FF84A9; */
@@ -95,6 +95,7 @@
             margin: 0 -8px !important;
             display: flex;
             justify-content: space-between;
+            height: 70px;
         }
 
         .navadi .left {
@@ -104,6 +105,7 @@
             padding: 16px 10px;
             margin: 3px 10px;
             font-weight: 900;
+            height: 30px;
         }
 
         .navadi .right {
@@ -124,6 +126,7 @@
             font-weight: bold;
             color: rgb(53, 53, 53);
             background-color: var(--primary-color);
+            height: 30px;
         }
 
         .navadi .right .navadi-link:hover,
@@ -149,6 +152,8 @@
         .dropdown:hover .dropdown-links {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            height: 170px;
             top: 50px;
         }
 
@@ -248,6 +253,7 @@
         }
 
         .about-facts {
+            z-index: 10;
             padding-top: 5px;
             padding-left: 40px;
             width: 50%;
@@ -290,6 +296,7 @@
         }
 
         .academics-bg {
+            /* background-image: url(https://infyspringboard.onwingspan.com/apis/authContent/%2Fcontent-store%2Finfosysheadstart%2Finfosysheadstart%2FPublic%2Flex_auth_013335596543082496436%2Fweb-hosted%2Fassets%2Fbg1627882775782.svg); */
             background-image: url(/images/bg.svg);
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -321,23 +328,123 @@
             padding: 6px 10px;
         }
 
-        .academics .academics-cards .card {
-            padding: 6px 10px;
-            border-radius: 18px;
-            /* background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
-            box-shadow: var(--h1) var(--v1) var(--color-dark),
-                var(--h2) var(--v2) var(--color-light); */
-            background: rgba(255, 255, 255, 0.20);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            height: auto;
-            width: 250px;
+        .academics .academics-cards .card__face:hover {
+            box-shadow: none;
         }
 
-        .academics .academics-cards .card:hover {
-            box-shadow: none;
+        .academics .academics-cards .card .card-title {
+            padding: 6px 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+
+        .academics .academics-cards .card .card-title:hover {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+
+        .academics .academics-cards .scene .card-body, .academics .academics-cards .scene .back-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 380px;
+        }
+
+        .academics .academics-cards .scene .back-content {
+            padding: 6px 10px;
+            text-align: justify;
+        }
+        .academics .academics-cards .scene .back-content .hidden-content{
+            padding-top: 20px;
+        }
+
+        .academics .academics-cards .card .card-body .content {
+            margin-left: -30px;
+        }
+
+        .academics .academics-cards .card .card-body .content li {
+            list-style: none;
+        }
+
+        .academics .academics-cards .card .card-body .content li::before {
+            content: "\00BB";
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .academics .academics-cards .card .card-body .content a {
+            font-size: 16px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .academics .academics-cards .card .card-body .content a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        .academics .academics-cards .card .more-btn {
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            padding: 8px 20px;
+            margin: 3px 10px;
+            font-weight: bold;
+            color: rgb(53, 53, 53);
+            background-color: var(--primary-color);
+        }
+
+        .academics .academics-cards .card .more-btn:hover {
+            background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+            cursor: pointer;
+            color: white;
+        }
+
+        .scene {
+            width: 250px;
+            height: 450px;
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transform-origin: center right;
+            transition: transform 1s;
+        }
+
+        .card.is-flipped {
+            transform: translateX(-100%) rotateY(-180deg);
+        }
+
+        .card__face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: black;
+            backface-visibility: hidden;
+            padding: 6px 10px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.20);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .card__face--back {
+            transform: rotateY(180deg);
         }
     </style>
 
@@ -611,155 +718,291 @@
     <section id="academics" class="academics academics-bg">
         <div class="academics-title">Academics</div>
         <div class="academics-cards">
-            <div class="card">
-                <div class="card-title">Schools, Departments & the College</div>
-                <div class="card-body">
-                    <div class="content">
-                        <ol>
-                            <li>
-                                <a href="#"> Departments by School </a>
-                            </li>
-                            <li>
-                                <a href="#">School of Architecture and Planning</a>
-                            </li>
-                            <li>
-                                <a href="#">School of Engineering</a>
-                            </li>
-                            <li>
-                                <a href="#">School of Humanities, Arts, and Social Sciences</a>
-                            </li>
-                            <li>
-                                <a href="#">MIT Sloan School of Management</a>
-                            </li>
-                            <li>
-                                <a href="#">School of Science</a>
-                            </li>
-                            <li>
-                                <a href="#">MIT Bangalore College of Computing</a>
-                            </li>
-                        </ol>
+            <div class="scene scene--card">
+                <div id="one" class="card">
+                    <div class="card__face card__face--front">
+                        <div class="card-title">Schools, Departments & the College</div>
+                        <div class="card-body">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#"> Departments by School </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">School of Architecture and Planning</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">School of Engineering</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">School of Humanities, Arts, and Social Sciences</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MIT Sloan School of Management</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">School of Science</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MIT Bangalore College of Computing</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="more-btn" onclick="toggleCard('one')">Read More</div>
+                        </div>
                     </div>
-                    <div class="more-btn">Read More</div>
-                    <div class="hidden-content">Across MIT, faculty help set the global standard of excellence in their
-                        disciplines: They are pioneering scholars who love to teach. Deeply engaged in practice, they
-                        topple conventional walls between fields in the push for deeper understanding and fresh ideas.
+                    <div class="card__face card__face--back">
+                        <div class="card-title">Schools, Departments & the College</div>
+                        <div class="back-content">
+                            <div class="hidden-content">Across MIT, faculty help set the global standard of excellence in their disciplines: They are pioneering scholars who love to teach. Deeply engaged in practice, they topple conventional walls between fields in the push for deeper understanding and fresh ideas.
+                            </div>
+                            <div class="more-btn" onclick="toggleCard('one')">Back</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-title">Teaching & Learning</div>
-                <div class="card-body">
-                    <div class="content">
-                        <ol>
-                            <li>
-                                <a href="#">Registrar’s Office</a>
-                            </li>
-                            <li>
-                                <a href="#">Course Catalog (MIT Bulletin)</a>
-                            </li>
-                            <li>
-                                <a href="#">Office of the First Year</a>
-                            </li>
-                            <li>
-                                <a href="#">Office of Graduate Education</a>
-                            </li>
-                            <li>
-                                <a href="#">Office of Experiential Learning
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">Student Resources</a>
-                            </li>
-                            <li>
-                                <a href="#">Teaching + Learning Lab</a>
-                            </li>
-                        </ol>
+            <div class="scene scene--card">
+                <div id="two" class="card">
+                    <div class="card__face card__face--front">
+                        <div class="card-title">Teaching & Learning <br> <br> </div>
+                        <div class="card-body">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#">Registrar’s Office</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Course Catalog (MIT Bulletin)</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Office of the First Year</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Office of Graduate Education</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Office of Experiential Learning
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Student Resources</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Teaching + Learning Lab</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="more-btn" onclick="toggleCard('two')">Read More</div>
+                        </div>
                     </div>
-                    <div class="more-btn">Read More</div>
-                    <div class="hidden-content">Our campus is a workshop for inventing the future and we are all
-                        apprentices, learning from each other as we go. Because we like to make things, and we like to
-                        make an impact, iconic courses like 2.009 emphasize designing, inventing, collaborating, and
-                        translating students’ expertise to reach the world. </div>
+                    <div class="card__face card__face--back">
+                        <div class="card-title">Teaching & Learning <br> <br> </div>
+                        <div class="back-content">
+
+                            <div class="hidden-content">Our campus is a workshop for inventing the future and we are all
+                                apprentices, learning from each other as we go. Because we like to make things, and we
+                                like to
+                                make an impact, iconic courses like 2.009 emphasize designing, inventing, collaborating,
+                                and
+                                translating students’ expertise to reach the world. </div>
+                            <div class="more-btn" onclick="toggleCard('two')">Back</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-title">Open Learning</div>
-                <div class="card-body">
-                    <div class="content">
-                        <ol>
-                            <li>
-                                <a href="#">MITx</a>
-                            </li>
-                            <li>
-                                <a href="#">First-year STEM Classes from MIT</a>
-                            </li>
-                            <li>
-                                <a href="#">OpenCourseWare</a>
-                            </li>
-                            <li>
-                                <a href="#">MITx Micromasters</a>
-                            </li>
-                            <li>
-                                <a href="#">Open Learning</a>
-                            </li>
-                            <li>
-                                <a href="#">Residential Digital Innovations</a>
-                            </li>
-                            <li>
-                                <a href="#">Podcasts</a>
-                            </li>
-                        </ol>
+            <div class="scene scene--card">
+                <div id="three" class="card">
+                    <div class="card__face card__face--front">
+                        <div class="card-title">Open Learning <br> <br> </div>
+                        <div class="card-body">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#">MITx</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">First-year STEM Classes from MIT</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">OpenCourseWare</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MITx Micromasters</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Open Learning</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Residential Digital Innovations</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Podcasts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="more-btn" onclick="toggleCard('three')">Read More</div>
+                        </div>
                     </div>
-                    <div class="more-btn">Read More</div>
-                    <div class="hidden-content">MIT is pioneering new ways of teaching and learning, on our campus and
-                        around the world, by inventing and leveraging digital technologies. </div>
+                    <div class="card__face card__face--back">
+                        <div class="card-title">Open Learning <br> <br> </div>
+                        <div class="back-content">
+
+                            <div class="hidden-content">MIT is pioneering new ways of teaching and learning, on our
+                                campus and
+                                around the world, by inventing and leveraging digital technologies. </div>
+                            <div class="more-btn" onclick="toggleCard('three')">Back</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-title">Professional & Executive Education</div>
-                <div class="card-body">
-                    <div class="content">
-                        <ol>
-                            <li>
-                                <a href="#">Professional & Executive Learning</a>
-                            </li>
-                            <li>
-                                <a href="#">MIT Professional Education – School of Engineering</a>
-                            </li>
-                            <li>
-                                <a href="#">Sloan School of Management Executive Education</a>
-                            </li>
-                            <li>
-                                <a href="#">MIT xPRO</a>
-                            </li>
-                            <li>
-                                <a href="#">Bootcamps</a>
-                            </li>
-                        </ol>
+            <div class="scene scene--card">
+                <div id="four" class="card">
+                    <div class="card__face card__face--front">
+                        <div class="card-title">Professional & Executive Education</div>
+                        <div class="card-body">
+                            <div class="content">
+                                <ul>
+                                    <li>
+                                        <a href="#">Professional & Executive Learning</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MIT Professional Education – School of Engineering</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Sloan School of Management Executive Education</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MIT xPRO</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bootcamps</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="more-btn" onclick="toggleCard('four')">Read More</div>
+                        </div>
                     </div>
-                    <div class="more-btn">Read More</div>
-                    <div class="hidden-content">For executives, managers, entrepreneurs, and technical professionals
-                        eager to tap fresh thinking and new research from MIT, we offer dozens of executive and
-                        professional programs. </div>
+                    <div class="card__face card__face--back">
+                        <div class="card-title">Professional & Executive Education</div>
+                        <div class="back-content">
+                            <div class="hidden-content">For executives, managers, entrepreneurs, and technical
+                                professionals
+                                eager to tap fresh thinking and new research from MIT, we offer dozens of executive and
+                                professional programs. </div>
+                            <div class="more-btn" onclick="toggleCard('four')">Back</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="facilities" class="facilities">Facilities</section>
+    <section id="facilities" class="facilities">
+        <div class="collections">
+            <div class="collection">
+                <div class="title"></div>
+                <div class="description"></div>
+            </div>
+        </div>
+    </section>
     <section id="upcoming" class="upcoming">Upcoming</section>
     <section id="gallery" class="gallery">Event Gallery</section>
     <section id="hallOfFame" class="hallOfFame">Hall Of Fame</section>
     <section id="faq" class="faq">FAQ</section>
     <section id="footer" class="footer">Footer</section>
-    <div class="link-background">
-        <a href="" class="left">Hover Over Me</a>
-    </div>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
+    <section>More Content</section>
 </body>
 
 <script>
-    // function myFunction_set(color) {
-    //         document.documentElement.style.cssText = color;
-    // }
+    function toggleCard(id) {
+        var card = document.getElementById(id);
+        card.classList.toggle('is-flipped');
+    }
 </script>
 
 </html>
