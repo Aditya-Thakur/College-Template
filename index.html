@@ -9,6 +9,7 @@
     <title>Mysore Institute Of Technology</title>
     <style>
         * {
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
             /* --primary-color: #FF84A9; */
             --primary-color: #84B9FF;
@@ -22,7 +23,6 @@
             --bg-start: rgba(0, 0, 0, 0.22);
             --bg-end: rgba(255, 255, 255, 0.25);
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background-color: white;
@@ -312,7 +312,7 @@
 
         .academics-bg {
             /* background-image: url(https://infyspringboard.onwingspan.com/apis/authContent/%2Fcontent-store%2Finfosysheadstart%2Finfosysheadstart%2FPublic%2Flex_auth_013335596543082496436%2Fweb-hosted%2Fassets%2Fbg1627882775782.svg); */
-            background-image: url(/images/bg.svg);
+            background-image: url(/images/3.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -327,7 +327,9 @@
         .academics .academics-title,
         .facilities .f-title,
         .gallery .g-title,
-        .upcoming .t-title {
+        .upcoming .t-title,
+        .hallOfFame .h-title,
+        .faq .f-title {
             font-size: 32px;
             font-weight: bold;
             text-transform: uppercase;
@@ -676,7 +678,7 @@
 
         .upcoming {
             /* background-image: url(https://infyspringboard.onwingspan.com/apis/authContent/%2Fcontent-store%2Finfosysheadstart%2Finfosysheadstart%2FPublic%2Flex_auth_013335596543082496436%2Fweb-hosted%2Fassets%2Fbg1627882775782.svg); */
-            background-image: url(/images/bg.svg);
+            background-image: url(/images/2.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -710,14 +712,24 @@
             flex-direction: column;
             text-align: center;
             place-items: center;
-            border-right: 2px solid var(--primary-color);
+            border-right: 4px solid var(--primary-color);
         }
 
         .upcoming .orb .left .name {
             font-size: 2em;
         }
+
         .upcoming .orb .left .title {
             font-size: 1em;
+        }
+
+        .upcoming .orb .right {
+            padding: 6px 10px;
+            margin: 6px 10px;
+            display: flex;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
         }
 
         .upcoming .marquee {
@@ -760,10 +772,135 @@
                 left: -100%;
             }
         }
+
+        .hallOfFame .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10vmin;
+            overflow: hidden;
+            transform: skew(5deg);
+        }
+
+        .hallOfFame .container .card {
+            flex: 1;
+            transition: all 1s ease-in-out;
+            height: 75vmin;
+            position: relative;
+        }
+
+        .hallOfFame .container .card .card__head {
+            color: black;
+            background: var(--primary-color);
+            padding: 0.5em;
+            transform: rotate(-90deg);
+            transform-origin: 0% 0%;
+            transition: all 0.5s ease-in-out;
+            min-width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 1em;
+            white-space: nowrap;
+        }
+
+        .hallOfFame .container .card:hover {
+            flex-grow: 10;
+        }
+
+        .hallOfFame .container .card:hover img {
+            filter: grayscale(0);
+        }
+
+        .hallOfFame .container .card:hover .card__head {
+            text-align: center;
+            top: calc(100% - 2em);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 2em;
+            transform: rotate(0deg) skew(-5deg);
+        }
+
+        .hallOfFame .container .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 1s ease-in-out;
+            filter: grayscale(100%);
+        }
+
+        .hallOfFame .container .card:not(:nth-child(5)) {
+            margin-right: 1em;
+        }
+
+        .faq {
+            padding: 6px 10px;
+            width: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .faq .faqs {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .faq .faqs .faq-block {
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark) inset,
+                var(--h2) var(--v2) var(--color-light) inset;
+            border-radius: 25px;
+            justify-content: center;
+            padding: 8px 20px;
+            margin: 30px 10px;
+            font-weight: bold;
+            color: rgb(53, 53, 53);
+            background-color: var(--primary-color);
+            width: 550px;
+        }
+
+        .faq .accordion {
+            color: black;
+            cursor: pointer;
+            padding: 18px;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            font-size: 1em;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        /* .faq .active, */
+        .faq .faq-block:hover {
+            background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .faq .panel {
+            padding: 0 18px;
+            /* background-color: white; */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .footer {
+            padding: 1px 10px;
+            background-color: var(--primary-color);
+        }
+
+        .footer p {
+            text-align: center;
+        }
     </style>
 
 </head>
-
 <body>
     <section id="navadi" class="navadi">
         <div class="left rainbow">
@@ -776,7 +913,7 @@
             <div class="navadi-link"> <a href="#aboutUs"> About Us </a></div>
             <div class="navadi-link"> <a href="#academics">Academics</a> </div>
             <div class="navadi-link"> <a href="#facilities">Facilities</a> </div>
-            <div class="navadi-link"> <a href="#upcoming">Trending</a> </div>
+            <div class="navadi-link"> <a href="#trending">Trending</a> </div>
             <div class="dropdown">
                 <div class="dropdown-head">More</div>
                 <div class="dropdown-links">
@@ -1225,7 +1362,7 @@
         <div class="collections">
             <div class="collection">
                 <div class="image">
-                    <img src="images/slife.jpg" alt="Student Life" height="330px">
+                    <img src="images/4.jpg" alt="Student Life" height="330px">
                     <div class="title">Student Life</div>
                 </div>
                 <div class="description">
@@ -1241,7 +1378,7 @@
             </div>
             <div class="collection">
                 <div class="image">
-                    <img src="images/hd.jpg" alt="Housing & Dining" height="330px">
+                    <img src="images/3.jpg" alt="Housing & Dining" height="330px">
                     <div class="title">Housing & Dining</div>
                 </div>
                 <div class="description">
@@ -1255,7 +1392,7 @@
             </div>
             <div class="collection">
                 <div class="image">
-                    <img src="images/artr.jpeg" alt="Athletics & Recreation" height="330px">
+                    <img src="images/8.jpg" alt="Athletics & Recreation" height="330px">
                     <div class="title">Athletics & Recreation</div>
                 </div>
                 <div class="description">
@@ -1264,7 +1401,7 @@
                         <p>
                             MIT’s Department of Athletics, Physical Education, and Recreation offers sports instruction
                             and participation at all levels.
-                        </p>
+                      </p>
                     </div>
                 </div>
             </div>
@@ -1272,7 +1409,7 @@
         <div class="collections">
             <div class="collection">
                 <div class="image">
-                    <img src="images/ugtrsAUQ.jpeg" alt="Arts" height="330px">
+                    <img src="images/7.jpg" alt="Arts" height="330px">
                     <div class="title">Arts</div>
                 </div>
                 <div class="description">
@@ -1287,7 +1424,7 @@
             </div>
             <div class="collection">
                 <div class="image">
-                    <img src="images/div.jpg" alt="Diversity & Inclusion" height="330px">
+                    <img src="images/6.jpg" alt="Diversity & Inclusion" height="330px">
                     <div class="title">Diversity & Inclusion</div>
                 </div>
                 <div class="description">
@@ -1302,7 +1439,7 @@
             </div>
             <div class="collection">
                 <div class="image">
-                    <img src="images/hw.jpeg" alt="Health & Wellness" height="330px">
+                    <img src="images/1.jpg" alt="Health & Wellness" height="330px">
                     <div class="title">Health & Wellness</div>
                 </div>
                 <div class="description">
@@ -1317,65 +1454,95 @@
             </div>
         </div>
     </section>
-    <section id="upcoming" class="upcoming">
+    <section id="trending" class="upcoming">
         <div class="t-title">Trending</div>
         <div class="marquee">
             <div class="marquee--inner">
                 <span>
                     <div class="orb">
                         <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                person
+                            </div>
                             <div class="name">Vidhi</div>
                             <div class="title">4th Year <br> B.Tech (IT)</div>
                         </div>
                         <div class="right">
-                            Posted a new blog on <a href="#">Glassmorphism</a>
+                            <p>
+                                Posted a new blog on <a href="#">Glassmorphism</a>
+                            </p>
                         </div>
                     </div>
                     <div class="orb">
                         <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                cast_for_education
+                            </div>
                             <div class="name">Vishaak</div>
                             <div class="title">Asst Prof <br> CSE</div>
                         </div>
                         <div class="right">
-                            Initiated a course on <a href="#">IOT in-campus projects</a>
+                            <p>
+                                Initiated a course on <a href="#">IOT in-campus projects</a>
+                            </p>
                         </div>
                     </div>
                     <div class="orb">
                         <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                person
+                            </div>
                             <div class="name">Rohan</div>
                             <div class="title">3rd Year <br> B.Tech (ME)</div>
                         </div>
                         <div class="right">
-                            Got first rank in <a href="#">Robotics Programming Workshop</a>
+                            <p>
+                                Got first rank in <a href="#">Robotics Programming Workshop</a>
+                            </p>
                         </div>
                     </div>
                 </span>
                 <span>
                     <div class="orb">
                         <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                person
+                            </div>
+                            <div class="name">Akshay</div>
+                            <div class="title">Asst. Prof <br> CE</div>
+                        </div>
+                        <div class="right">
+                            <p>
+                                Grabbed Educator of the year award. <a href="#">Congratulate</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="orb">
+                        <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                cast_for_education
+                            </div>
+                            <div class="name">Admin</div>
+                            <div class="title">MIT <br> Informations</div>
+                        </div>
+                        <div class="right">
+                            <p>
+                                Hackathon result announced. <a href="#">Check Winners</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="orb">
+                        <div class="left">
+                            <div class="material-icons material-icons-outlined">
+                                person
+                            </div>
                             <div class="name">Vidhi</div>
                             <div class="title">4th Year <br> B.Tech (IT)</div>
                         </div>
                         <div class="right">
-                            Posted a new blog on <a href="#">Glassmorphism</a>
-                        </div>
-                    </div>
-                    <div class="orb">
-                        <div class="left">
-                            <div class="name">Vishaak</div>
-                            <div class="title">Asst Prof <br> CSE</div>
-                        </div>
-                        <div class="right">
-                            Initiated a course on <a href="#">IOT in-campus projects</a>
-                        </div>
-                    </div>
-                    <div class="orb">
-                        <div class="left">
-                            <div class="name">Rohan</div>
-                            <div class="title">3rd Year <br> B.Tech (ME)</div>
-                        </div>
-                        <div class="right">
-                            Got first rank in <a href="#">Robotics Programming Workshop</a>
+                            <p>
+                                Posted a new blog on <a href="#">Glassmorphism</a>
+                            </p>
                         </div>
                     </div>
                 </span>
@@ -1392,39 +1559,39 @@
             <div class="cube-container">
                 <div class="photo-cube">
 
-                    <img class="front" src="images/ugtrsAUQ.jpeg" alt="">
+                    <img class="front" src="images/1.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Arts</h3>
                         <p>We organize multiple cultural & technical festivals.</p>
                     </div>
-                    <img class="left" src="images/div.jfif" alt="">
-                    <img class="right" src="images/cello.jpg" alt="">
+                    <img class="left" src="images/2.jpg" alt="">
+                    <img class="right" src="images/3.jpg" alt="">
 
                 </div>
             </div>
 
             <div class="cube-container">
                 <div class="photo-cube">
-                    <img class="front" src="images/artr.jpeg" alt="">
+                    <img class="front" src="images/4.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Sports</h3>
                         <p>Throughout the year we enrich sports programs with active participation</p>
                     </div>
-                    <img class="left" src="images/karate club_1.jpg" alt="">
-                    <img class="right" src="images/picspree-400109.jpg" alt="">
+                    <img class="left" src="images/5.jpg" alt="">
+                    <img class="right" src="images/6.jpg" alt="">
                 </div>
             </div>
 
             <div class="cube-container">
                 <div class="photo-cube">
-                    <img class="front" src="images/picspree-740053.jpg" alt="">
+                    <img class="front" src="images/7.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Education</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque vel
                             perferendis ratione itaque. </p>
                     </div>
-                    <img class="right" src="images/picspree-1096912.jpg" alt="">
-                    <img class="left" src="images/slife.jpg" alt="">
+                    <img class="right" src="images/8.jpg" alt="">
+                    <img class="left" src="images/9.jpg" alt="">
 
                 </div>
             </div>
@@ -1435,54 +1602,146 @@
             <div class="cube-container">
                 <div class="photo-cube">
 
-                    <img class="front" src="images/ugtrsAUQ.jpeg" alt="">
+                    <img class="front" src="images/10.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Arts</h3>
                         <p>We organize multiple cultural & technical festivals.</p>
                     </div>
-                    <img class="left" src="images/div.jfif" alt="">
-                    <img class="right" src="images/cello.jpg" alt="">
+                    <img class="left" src="images/1.jpg" alt="">
+                    <img class="right" src="images/2.jpg" alt="">
 
                 </div>
             </div>
 
             <div class="cube-container">
                 <div class="photo-cube">
-                    <img class="front" src="images/artr.jpeg" alt="">
+                    <img class="front" src="images/3.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Sports</h3>
                         <p>Throughout the year we enrich sports programs with active participation</p>
                     </div>
-                    <img class="left" src="images/karate club_1.jpg" alt="">
-                    <img class="right" src="images/picspree-400109.jpg" alt="">
+                    <img class="left" src="images/4.jpg" alt="">
+                    <img class="right" src="images/5.jpg" alt="">
                 </div>
             </div>
 
             <div class="cube-container">
                 <div class="photo-cube">
-                    <img class="front" src="images/picspree-740053.jpg" alt="">
+                    <img class="front" src="images/6.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Education</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque vel
                             perferendis ratione itaque. </p>
                     </div>
-                    <img class="right" src="images/picspree-1096912.jpg" alt="">
-                    <img class="left" src="images/slife.jpg" alt="">
+                    <img class="right" src="images/7.jpg" alt="">
+                    <img class="left" src="images/8.jpg" alt="">
 
                 </div>
             </div>
 
         </div>
     </section>
-    <section id="hallOfFame" class="hallOfFame">Hall Of Fame</section>
-    <section id="faq" class="faq">FAQ</section>
-    <section id="footer" class="footer">Footer</section>
+    <section id="hallOfFame" class="hallOfFame">
+        <div class="h-title">Hall Of Fame</div>
+        <div class="container">
+            <div class="card">
+                <img src="images/9.jpg">
+                <div class="card__head">Nobel Prize</div>
+            </div>
+            <div class="card">
+                <img src="images/8.jpg">
+                <div class="card__head">National Medal of Technology</div>
+            </div>
+            <div class="card">
+                <img src="images/7.jpg">
+                <div class="card__head">MacArthur</div>
+            </div>
+            <div class="card">
+                <img src="images/6.jpg">
+                <div class="card__head">A. M. Turing Award</div>
+            </div>
+            <div class="card">
+                <img src="images/5.jpg">
+                <div class="card__head">National Medal of Science</div>
+            </div>
+        </div>
+    </section>
+    <section id="faq" class="faq">
+        <div class="f-title">
+            FAQs
+        </div>
+        <div class="faqs">
+            <div class="left">
+                <div class="faq-block">
+                    <div class="accordion">Does my transcript count as official?</div>
+                    <div class="panel">
+                        <p>Transcripts must be sent in by your school counselor or another school representative to
+                            fulfill our requirements for an official transcript. This applies for high school and
+                            college transcripts.</p>
+                    </div>
+                </div>
+                <div class="faq-block">
+                    <div class="accordion">How do I send in my transcript?</div>
+                    <div class="panel">
+                        <p>All transcripts must be submitted by a school counselor or another school representative to
+                            be considered official. This applies for high school and college transcripts.</p>
+                    </div>
+                </div>
+                <div class="faq-block">
+                    <div class="accordion">How do I apply to MIT through QuestBridge?</div>
+                    <div class="panel">
+                        <p>If you’re applying to MIT through QuestBridge College Match, simply complete and submit the
+                            QuestBridge Match application.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="faq-block">
+                    <div class="accordion">What is the MIT QuestBridge Supplement?</div>
+                    <div class="panel">
+                        <p>Our MIT QuestBridge Supplement is a way for us to gather some additional information on our QuestBridge applicants. </p>
+                    </div>
+                </div>
+                <div class="faq-block">
+                    <div class="accordion">Can I take November tests for the Match?</div>
+                    <div class="panel">
+                        <p>October is the last test date for QuestBridge Finalists to complete the required testing to be considered for the College Match at MIT. </p>
+                    </div>
+                </div>
+                <div class="faq-block">
+                    <div class="accordion">What happens if I’m not selected as a Match?</div>
+                    <div class="panel">
+                        <p>All QuestBridge College Match results are announced in early December. At that time, there are three things that could happen: You could be matched with a binding school and must…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="footer" class="footer">
+        <p>© Infy Springboard | 2021</p>
+    </section>
 </body>
 
 <script>
     function toggleCard(id) {
         var card = document.getElementById(id);
         card.classList.toggle('is-flipped');
+    }
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
     }
 </script>
 
