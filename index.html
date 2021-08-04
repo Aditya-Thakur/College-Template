@@ -11,7 +11,6 @@
         * {
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            /* --primary-color: #FF84A9; */
             --primary-color: #84B9FF;
             --h1: 12px 12px;
             --v1: 16px 0;
@@ -24,7 +23,10 @@
             --bg-end: rgba(255, 255, 255, 0.25);
         }
 
+        abc {}
+
         body {
+            /* --primary-color: #FF84A9; */
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background-color: white;
             top: 0;
@@ -165,7 +167,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 170px;
+            height: 180px;
             top: 40px;
         }
 
@@ -233,8 +235,13 @@
 
         .banner-heading {
             position: absolute;
-            top: 10%;
-            right: 10%;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between
         }
 
         .banner-heading .title {
@@ -245,7 +252,7 @@
         .banner-heading .sub-title {
             font-size: 36px;
             font-style: italic;
-            float: right;
+            /* float: right; */
         }
 
         .banner-heading .sub-title::before {
@@ -255,6 +262,97 @@
         .banner-heading .sub-title::after {
             content: close-quote;
         }
+
+        .banner .banner-heading .left .sidebar .tile {
+            margin: 36px 0px;
+            padding: 6px 10px;
+            display: flex;
+            background: linear-gradient(75deg, var(--bg-end), var(--bg-start));
+            box-shadow: var(--h1) var(--v1) var(--color-light),
+                var(--h2) var(--v2) var(--color-dark);
+
+            color: #000;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            justify-content: end;
+        }
+
+        .banner .banner-heading .right .big-tile {
+            margin: 36px 0px;
+            padding: 6px 10px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+
+            color: #000;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            justify-content: space-around;
+            text-align: center;
+            align-items: center;
+        }
+
+        .banner .banner-heading .left .sidebar .tile:hover,
+        .banner .banner-heading .right .big-tile:hover {
+            background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+            color: white;
+        }
+
+        .banner .banner-heading .left .sidebar .tile .text {
+            text-align: center;
+            padding: 6px 10px;
+            font-weight: bold;
+            width: 100%;
+            align-items: center;
+        }
+
+        .banner .banner-heading .left .sidebar .tile .text .number {
+            font-size: 2em;
+        }
+
+        .banner .banner-heading .left .sidebar .tile .image img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .banner .banner-heading .right .big-tile .springboard img {
+            width: 200px;
+            padding: 6px 10px;
+        }
+
+        .banner .banner-heading .right .big-tile .icon .material-icons {
+            font-size: 5em;
+            width: 200px;
+            font-weight: bold;
+            padding: 6px 10px;
+        }
+
+        .banner .banner-heading .right .big-tile .mit {
+            font-size: 2.5em;
+            width: 200px;
+            font-weight: bold;
+            padding: 6px 10px;
+        }
+
+        /* ================================= 
+  Media Queries
+==================================== */
+
+        @media (max-width: 769px) {
+
+            .banner .banner-heading .right {
+                display: none;
+            }
+        }
+
+        /* ================================= 
+  Media Queries End
+==================================== */
 
         .about-us {
             padding: 6px 10px;
@@ -389,7 +487,7 @@
 
         .academics-bg {
             /* background-image: url(https://infyspringboard.onwingspan.com/apis/authContent/%2Fcontent-store%2Finfosysheadstart%2Finfosysheadstart%2FPublic%2Flex_auth_013335596543082496436%2Fweb-hosted%2Fassets%2Fbg1627882775782.svg); */
-            background-image: url(/images/3.jpg);
+            background-image: url(/images/8.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -407,10 +505,10 @@
         .upcoming .t-title,
         .hallOfFame .h-title,
         .faq .f-title {
-            font-size: 32px;
+            font-size: 2em;
             font-weight: bold;
-            text-transform: uppercase;
-            padding: 6px 10px;
+            /* text-transform: uppercase; */
+            padding: 16px 0px 0px 0px;
             text-align: center;
         }
 
@@ -427,8 +525,16 @@
             color: white;
         }
 
+        .academics .academics-sub-title,
+        .gallery .g-sub-title,
+        .hallOfFame .h-sub-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
         .academics .academics-cards {
-            margin-top: 50px;
+            /* margin-top: 50px; */
             display: flex;
             justify-content: space-around;
             padding: 6px 10px;
@@ -466,6 +572,13 @@
 
         .academics .academics-cards .scene .back-content .hidden-content {
             padding-top: 20px;
+        }
+
+        .academics .academics-cards .card .card-body .image img {
+            height: 120px;
+            width: 100%;
+            object-fit: contain;
+            padding: 6px 0 0 0;
         }
 
         .academics .academics-cards .card .card-body .content {
@@ -545,7 +658,7 @@
             backface-visibility: hidden;
             padding: 6px 10px;
             border-radius: 18px;
-            background: rgba(255, 255, 255, 0.20);
+            background: rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
@@ -569,6 +682,15 @@
         /* ================================= 
   Media Queries End
 ==================================== */
+
+
+        .facilities .f-sub-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            background-color: var(--primary-color);
+            padding: 6px 0px 10px 0px;
+        }
 
         .facilities .collections {
             padding: 6px 10px;
@@ -596,6 +718,25 @@
             overflow: hidden;
         }
 
+        .facilities .collection .image .button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid white;
+            padding: 6px 10px;
+            color: white;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+
+        .facilities .collection .image .button:hover {
+            cursor: pointer;
+            color: #000;
+            border-color: #000;
+            font-weight: bold;
+        }
+
         .collection .image img {
             width: 100%;
             transition: .5s;
@@ -611,13 +752,22 @@
             font-weight: bold;
         }
 
-        .collection:hover .image img {
+        .collection .image img {
             opacity: .5;
             transform: translateX(30%);
         }
 
-        .collection:hover .image .title {
+        .collection .image .title {
             opacity: 0;
+        }
+
+        .collection:hover .image img {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+
+        .collection:hover .image .title {
+            opacity: 1;
         }
 
         .collection .description {
@@ -636,8 +786,12 @@
             transform: perspective(2000px) rotateY(-90deg);
         }
 
-        .collection:hover .description {
+        .collection .description {
             transform: perspective(2000px) rotateY(0deg);
+        }
+
+        .collection:hover .description {
+            transform: perspective(2000px) rotateY(-90deg);
         }
 
         .collection .description .center {
@@ -763,7 +917,7 @@
 
         .upcoming {
             /* background-image: url(https://infyspringboard.onwingspan.com/apis/authContent/%2Fcontent-store%2Finfosysheadstart%2Finfosysheadstart%2FPublic%2Flex_auth_013335596543082496436%2Fweb-hosted%2Fassets%2Fbg1627882775782.svg); */
-            background-image: url(/images/2.jpg);
+            background-image: url(/images/9.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
@@ -776,7 +930,7 @@
 
         .upcoming .orb {
             width: 350px;
-            height: 150px;
+            height: 180px;
             background: rgba(255, 255, 255, 0.40);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             backdrop-filter: blur(7.5px);
@@ -788,6 +942,7 @@
             float: left;
             transition: all .2s ease-out;
             display: flex;
+            flex-direction: column;
         }
 
         .upcoming .orb:hover {
@@ -796,12 +951,8 @@
         }
 
         .upcoming .orb .left {
-            padding: 6px 10px;
-            display: flex;
-            flex-direction: column;
             text-align: center;
             place-items: center;
-            border-right: 4px solid var(--primary-color);
         }
 
         .upcoming .orb .left .name {
@@ -813,10 +964,10 @@
         }
 
         .upcoming .orb .right {
-            padding: 6px 10px;
-            margin: 6px 10px;
-            display: flex;
-            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6px;
+            margin: 6px;
             font-size: 1.2em;
             font-weight: bold;
         }
@@ -844,8 +995,9 @@
 
         .upcoming .marquee .orb a {
             text-decoration: underline;
-            color: blue;
+            color: rgb(44, 44, 44);
         }
+
         .upcoming .marquee .orb a:hover {
             color: white;
         }
@@ -933,7 +1085,7 @@
 
         .faq {
             padding: 6px 10px;
-            width: 100%;
+            width: 99%;
             background-color: var(--primary-color);
         }
 
@@ -945,7 +1097,7 @@
 
         .faq .faqs .left,
         .faq .faqs .right {
-            width: 48%;
+            width: 45%;
         }
 
         .faq .faqs .faq-block {
@@ -955,22 +1107,31 @@
                 var(--h2) var(--v2) var(--color-light) inset;
             border-radius: 25px;
             justify-content: center;
-            /* padding: 8px 20px; */
             margin: 30px 10px;
             font-weight: bold;
-            color: rgb(53, 53, 53);
+            color: rgb(0, 0, 0);
             background-color: var(--primary-color);
         }
 
         .faq .accordion {
-            color: black;
             cursor: pointer;
             padding: 18px;
             text-align: left;
             border: none;
+            overflow: hidden;
             outline: none;
             transition: 0.4s;
+            text-overflow: ellipsis;
+        }
+
+        .faq .accordion .question {
+            color: black;
             font-size: 1em;
+        }
+
+        .faq .accordion .answer-glimpse {
+            color: rgba(22, 22, 22, 0.705);
+            text-overflow: ellipsis;
         }
 
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -1009,12 +1170,57 @@
 ==================================== */
 
         .footer {
-            padding: 1px 10px;
+            padding: 10px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
             background-color: var(--primary-color);
         }
 
-        .footer p {
-            text-align: center;
+        .footer .left .address-head,
+        .footer .center .head {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer .left .address-para {
+            font-size: 1rem;
+        }
+
+        .footer .left .address-para:hover,
+        .footer .center .links .link:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: white;
+        }
+
+        .footer .right .contact .icon {
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .right .icons {
+            padding: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer .right .icons .icon:hover,
+        .footer .right .contact .icon:hover {
+            color: white;
+            fill: white;
+            cursor: pointer;
+        }
+
+        .footer .right .title a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer .right .title a:hover {
+            text-decoration: underline;
+            color: white;
         }
     </style>
 
@@ -1025,20 +1231,20 @@
         <div class="left rainbow">
             <div class="material-icons material-icons-outlined">
                 school
-            </div>
-            LOGO
+            </div> &nbsp;
+            MIT &nbsp;
         </div>
         <div class="right">
-            <div class="navadi-link"> <a href="#aboutUs"> About Us </a></div>
-            <div class="navadi-link"> <a href="#academics">Academics</a> </div>
-            <div class="navadi-link"> <a href="#facilities">Facilities</a> </div>
-            <div class="navadi-link"> <a href="#trending">Trending</a> </div>
+            <div class="navadi-link"> <a  onclick="goTo('aboutUs')"> About Us </a></div>
+            <div class="navadi-link"> <a onclick="goTo('academics')">Academics</a> </div>
+            <div class="navadi-link"> <a onclick="goTo('facilities')">Facilities</a> </div>
+            <div class="navadi-link"> <a onclick="goTo('trending')">Trending</a> </div>
             <div class="dropdown">
                 <div class="dropdown-head">More</div>
                 <div class="dropdown-links">
-                    <div class="dropdown-link navadi-link"> <a href="#gallery">Gallery</a></div>
-                    <div class="dropdown-link navadi-link"> <a href="#hallOfFame">Hall Of Fame</a></div>
-                    <div class="dropdown-link navadi-link"> <a href="#faq">FAQ</a> </div>
+                    <div class="dropdown-link navadi-link"> <a onclick="goTo('gallery')">Gallery</a></div>
+                    <div class="dropdown-link navadi-link"> <a onclick="goTo('hallOfFame')">Hall Of Fame</a></div>
+                    <div class="dropdown-link navadi-link"> <a onclick="goTo('faq')"">FAQ</a> </div>
                 </div>
             </div>
         </div>
@@ -1058,13 +1264,13 @@
                 </a>
             </div>
             <div id="mob-nav-links" class="items">
-                <div class="navadi-link"> <a href="#aboutUs"> About Us </a></div>
-                <div class="navadi-link"> <a href="#academics">Academics</a> </div>
-                <div class="navadi-link"> <a href="#facilities">Facilities</a> </div>
-                <div class="navadi-link"> <a href="#trending">Trending</a> </div>
-                <div class="navadi-link"> <a href="#gallery">Gallery</a></div>
-                <div class="navadi-link"> <a href="#hallOfFame">Hall Of Fame</a></div>
-                <div class="navadi-link"> <a href="#faq">FAQ</a> </div>
+                <div class="navadi-link"> <a onclick="goTo('aboutUs')"> About Us </a></div>
+                <div class="navadi-link"> <a onclick="goTo('academics')">Academics</a> </div>
+                <div class="navadi-link"> <a onclick="goTo('facilities')">Facilities</a> </div>
+                <div class="navadi-link"> <a onclick="goTo('trending')">Trending</a> </div>
+                <div class="navadi-link"> <a onclick="goTo('gallery')">Gallery</a></div>
+                <div class="navadi-link"> <a onclick="goTo('hallOfFame')">Hall Of Fame</a></div>
+                <div class="navadi-link"> <a onclick="goTo('faq')">FAQ</a> </div>
             </div>
         </div>
         </div>
@@ -1169,11 +1375,58 @@
             </svg>
         </div>
         <div class="banner-heading">
-            <div class="title">
-                Mysore Institute of Technology
+            <div class="left">
+                <div class="sidebar">
+                    <div class="tile">
+                        <div class="image">
+                            <img src="images/3.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <div class="number">15</div>
+                            <div class="category">Khelo India</div>
+                        </div>
+                    </div>
+                    <div class="tile">
+                        <div class="image">
+                            <img src="images/6.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <div class="number">3</div>
+                            <div class="category">Intel Iot Hackathon</div>
+                        </div>
+                    </div>
+                    <div class="tile">
+                        <div class="image">
+                            <img src="images/10.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <div class="number">7</div>
+                            <div class="category">Cadence Design Contest</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="sub-title">
-                mens et manus
+            <div class="center">
+                <div class="title">
+                    Mysore Institute of Technology
+                </div>
+                <div class="sub-title">
+                    mens et manus
+                </div>
+            </div>
+            <div class="right">
+                <div class="big-tile">
+                    <div class="springboard">
+                        <img src="images/logo.png" alt="">
+                    </div>
+                    <div class="icon">
+                        <div class="material-icons material-icons-outlined">
+                            published_with_changes
+                        </div>
+                    </div>
+                    <div class="mit">MIT
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1181,16 +1434,21 @@
         <div class="about-text">
             <span class="about-title underline">ABOUT MIT</span>
             <div class="big-text">
-                The MIT community is driven by a shared purpose: to make a better world through education, research, and
-                innovation. We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with numbers,
+                The MIT community is driven by a shared purpose: to make a better world through education, research,
+                and
+                innovation. We are fun and quirky, elite but not elitist, inventive and artistic, obsessed with
+                numbers,
                 and welcoming to talented people regardless of where they come from.
             </div> <br>
             <div class="small-text">
                 Founded to accelerate the nation’s industrial revolution, MIT is profoundly
                 Indian. With ingenuity and drive, our graduates have invented fundamental technologies, launched new
-                industries, and created millions of Indian jobs. At the same time, and without the slightest sense of
-                contradiction, MIT is profoundly global. Our community gains tremendous strength as a magnet for talent
-                from around the world. Through teaching, research, and innovation, MIT’s exceptional community pursues
+                industries, and created millions of Indian jobs. At the same time, and without the slightest sense
+                of
+                contradiction, MIT is profoundly global. Our community gains tremendous strength as a magnet for
+                talent
+                from around the world. Through teaching, research, and innovation, MIT’s exceptional community
+                pursues
                 its mission of service to the nation and the world.
             </div>
         </div>
@@ -1312,35 +1570,32 @@
         </svg>
     </section>
     <section id="academics" class="academics academics-bg">
-        <div class="academics-title">Academics</div>
+        <div class="academics-title">ACADEMICS</div>
+        <div class="academics-sub-title">"Education is not learning of facts, but the training of mind to think."
+        </div>
         <div class="academics-cards">
             <div class="scene scene--card">
                 <div id="one" class="card">
                     <div class="card__face card__face--front">
                         <div class="card-title">Schools, Departments & the College</div>
                         <div class="card-body">
+                            <div class="image">
+                                <img src="images/aca1.svg" alt="">
+                            </div>
                             <div class="content">
                                 <ul>
                                     <li>
                                         <a href="javascript:void(0);"> Departments by School </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">School of Architecture and Planning</a>
+                                        <a href="javascript:void(0);">School of Architecture</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">School of Engineering</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">School of Humanities, Arts, and Social Sciences</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">MIT Sloan School of Management</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">School of Science</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">MIT Bangalore College of Computing</a>
+                                        <a href="javascript:void(0);">School of Humanities, Arts, and Social
+                                            Sciences</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1350,8 +1605,10 @@
                     <div class="card__face card__face--back">
                         <div class="card-title">Schools, Departments & the College</div>
                         <div class="back-content">
-                            <div class="hidden-content">Across MIT, faculty help set the global standard of excellence
-                                in their disciplines: They are pioneering scholars who love to teach. Deeply engaged in
+                            <div class="hidden-content">Across MIT, faculty help set the global standard of
+                                excellence
+                                in their disciplines: They are pioneering scholars who love to teach. Deeply engaged
+                                in
                                 practice, they topple conventional walls between fields in the push for deeper
                                 understanding and fresh ideas.
                             </div>
@@ -1365,6 +1622,9 @@
                     <div class="card__face card__face--front">
                         <div class="card-title">Teaching & Learning <br> <br> </div>
                         <div class="card-body">
+                            <div class="image">
+                                <img src="images/aca2.svg" alt="">
+                            </div>
                             <div class="content">
                                 <ul>
                                     <li>
@@ -1383,12 +1643,6 @@
                                         <a href="javascript:void(0);">Office of Experiential Learning
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="javascript:void(0);">Student Resources</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">Teaching + Learning Lab</a>
-                                    </li>
                                 </ul>
                             </div>
                             <div class="more-btn" onclick="toggleCard('two')">Read More</div>
@@ -1398,10 +1652,13 @@
                         <div class="card-title">Teaching & Learning <br> <br> </div>
                         <div class="back-content">
 
-                            <div class="hidden-content">Our campus is a workshop for inventing the future and we are all
-                                apprentices, learning from each other as we go. Because we like to make things, and we
+                            <div class="hidden-content">Our campus is a workshop for inventing the future and we are
+                                all
+                                apprentices, learning from each other as we go. Because we like to make things, and
+                                we
                                 like to
-                                make an impact, iconic courses like 2.009 emphasize designing, inventing, collaborating,
+                                make an impact, iconic courses like 2.009 emphasize designing, inventing,
+                                collaborating,
                                 and
                                 translating students’ expertise to reach the world. </div>
                             <div class="more-btn" onclick="toggleCard('two')">Back</div>
@@ -1414,13 +1671,16 @@
                     <div class="card__face card__face--front">
                         <div class="card-title">Open Learning <br> <br> </div>
                         <div class="card-body">
+                            <div class="image">
+                                <img src="images/aca3.svg" alt="">
+                            </div>
                             <div class="content">
                                 <ul>
                                     <li>
                                         <a href="javascript:void(0);">MITx</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">First-year STEM Classes from MIT</a>
+                                        <a href="javascript:void(0);">First-year STEM Classes</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">OpenCourseWare</a>
@@ -1430,12 +1690,6 @@
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">Open Learning</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">Residential Digital Innovations</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">Podcasts</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1457,24 +1711,24 @@
             <div class="scene scene--card">
                 <div id="four" class="card">
                     <div class="card__face card__face--front">
-                        <div class="card-title">Professional & Executive Education</div>
+                        <div class="card-title">Executive Education</div>
                         <div class="card-body">
+                            <div class="image">
+                                <img src="images/aca4.svg" alt="">
+                            </div>
                             <div class="content">
                                 <ul>
                                     <li>
-                                        <a href="javascript:void(0);">Professional & Executive Learning</a>
+                                        <a href="javascript:void(0);">Executive Learning</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">MIT Professional Education – School of Engineering</a>
+                                        <a href="javascript:void(0);">MIT Professional Education</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">Sloan School of Management Executive Education</a>
+                                        <a href="javascript:void(0);">School of Management</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);">MIT xPRO</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">Bootcamps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1486,7 +1740,8 @@
                         <div class="back-content">
                             <div class="hidden-content">For executives, managers, entrepreneurs, and technical
                                 professionals
-                                eager to tap fresh thinking and new research from MIT, we offer dozens of executive and
+                                eager to tap fresh thinking and new research from MIT, we offer dozens of executive
+                                and
                                 professional programs. </div>
                             <div class="more-btn" onclick="toggleCard('four')">Back</div>
                         </div>
@@ -1503,11 +1758,14 @@
         </svg>
     </section>
     <section id="facilities" class="facilities">
-        <div class="f-title">Facilities</div>
+        <div class="f-title">FACILITIES</div>
+        <div class="f-sub-title">"Education is what remains after one has forgotten everything they learned in
+            school."</div>
         <div class="collections">
             <div class="collection">
                 <div class="image">
                     <img src="images/4.jpg" alt="Student Life" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Student Life</div>
                 </div>
                 <div class="description">
@@ -1515,7 +1773,8 @@
                     <div class="center">
                         <p>
                             With 500+ student organizations (chocolate science, anyone?), nearly 40 Greek-letter and
-                            independent living groups, chaplains for more than 20 faith traditions, and a commitment to
+                            independent living groups, chaplains for more than 20 faith traditions, and a commitment
+                            to
                             diversity and inclusion, student life at MIT offers a welcoming place for everyone.
                         </p>
                     </div>
@@ -1524,13 +1783,15 @@
             <div class="collection">
                 <div class="image">
                     <img src="images/3.jpg" alt="Housing & Dining" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Housing & Dining</div>
                 </div>
                 <div class="description">
                     <div class="title">Housing & Dining</div>
                     <div class="center">
                         <p>
-                            Our residence halls are part entertainment center, part brain trust, part support system,
+                            Our residence halls are part entertainment center, part brain trust, part support
+                            system,
                             and wholly central to students’ MIT experience. </p>
                     </div>
                 </div>
@@ -1538,13 +1799,15 @@
             <div class="collection">
                 <div class="image">
                     <img src="images/8.jpg" alt="Athletics & Recreation" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Athletics & Recreation</div>
                 </div>
                 <div class="description">
                     <div class="title">Athletics & Recreation</div>
                     <div class="center">
                         <p>
-                            MIT’s Department of Athletics, Physical Education, and Recreation offers sports instruction
+                            MIT’s Department of Athletics, Physical Education, and Recreation offers sports
+                            instruction
                             and participation at all levels.
                         </p>
                     </div>
@@ -1555,13 +1818,15 @@
             <div class="collection">
                 <div class="image">
                     <img src="images/7.jpg" alt="Arts" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Arts</div>
                 </div>
                 <div class="description">
                     <div class="title">Arts</div>
                     <div class="center">
                         <p>
-                            The arts thrive naturally in MIT’s creative culture of experimentation and innovation that
+                            The arts thrive naturally in MIT’s creative culture of experimentation and innovation
+                            that
                             crosses every discipline.
                         </p>
                     </div>
@@ -1570,13 +1835,15 @@
             <div class="collection">
                 <div class="image">
                     <img src="images/6.jpg" alt="Diversity & Inclusion" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Diversity & Inclusion</div>
                 </div>
                 <div class="description">
                     <div class="title">Diversity & Inclusion</div>
                     <div class="center">
                         <p>
-                            At MIT, we welcome and support a diverse community of remarkable talent. But we know that to
+                            At MIT, we welcome and support a diverse community of remarkable talent. But we know
+                            that to
                             make a better world, we must work to continually make a better MIT.
                         </p>
                     </div>
@@ -1585,6 +1852,7 @@
             <div class="collection">
                 <div class="image">
                     <img src="images/1.jpg" alt="Health & Wellness" height="330px">
+                    <div class="button">EXPLORE</div>
                     <div class="title">Health & Wellness</div>
                 </div>
                 <div class="description">
@@ -1600,17 +1868,14 @@
         </div>
     </section>
     <section id="trending" class="upcoming">
-        <div class="t-title">Trending</div>
+        <div class="t-title">TRENDING</div>
         <div class="marquee">
             <div class="marquee--inner">
                 <span>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                person
-                            </div>
                             <div class="name">Vidhi</div>
-                            <div class="title">4th Year <br> B.Tech (IT)</div>
+                            <div class="title">4th Year | B.Tech (IT)</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1620,11 +1885,19 @@
                     </div>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                cast_for_education
-                            </div>
+                            <div class="name">Charanya</div>
+                            <div class="title">3rd Year | B.Tech (CE)</div>
+                        </div>
+                        <div class="right">
+                            <p>
+                                Posted a new blog on <a href="javascript:void(0);">Internet Of Things</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="orb">
+                        <div class="left">
                             <div class="name">Vishaak</div>
-                            <div class="title">Asst Prof <br> CSE</div>
+                            <div class="title">Asst Prof | CSE</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1634,11 +1907,8 @@
                     </div>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                person
-                            </div>
                             <div class="name">Rohan</div>
-                            <div class="title">3rd Year <br> B.Tech (ME)</div>
+                            <div class="title">3rd Year | B.Tech (ME)</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1650,11 +1920,8 @@
                 <span>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                person
-                            </div>
                             <div class="name">Akshay</div>
-                            <div class="title">Asst. Prof <br> CE</div>
+                            <div class="title">Asst. Prof | CE</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1664,11 +1931,20 @@
                     </div>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                cast_for_education
-                            </div>
+                            <div class="name">Rashmi</div>
+                            <div class="title">Asst. Prof | CS</div>
+                        </div>
+                        <div class="right">
+                            <p>
+                                Published reasearch paper on <a href="javascript:void(0);">Daily news sentiment
+                                    analysis</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="orb">
+                        <div class="left">
                             <div class="name">Admin</div>
-                            <div class="title">MIT <br> Informations</div>
+                            <div class="title">MIT | Informations</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1678,11 +1954,8 @@
                     </div>
                     <div class="orb">
                         <div class="left">
-                            <div class="material-icons material-icons-outlined">
-                                person
-                            </div>
                             <div class="name">Vidhi</div>
-                            <div class="title">4th Year <br> B.Tech (IT)</div>
+                            <div class="title">4th Year | B.Tech (IT)</div>
                         </div>
                         <div class="right">
                             <p>
@@ -1696,7 +1969,8 @@
         </div>
     </section>
     <section id="gallery" class="gallery">
-        <div class="g-title">Gallery</div>
+        <div class="g-title"> GALLERY </div>
+        <div class="g-sub-title"> "Photographs are return ticket to the glorius moments we had." </div>
         <br>
         <br>
         <div class="content clearfix">
@@ -1730,7 +2004,8 @@
                     <img class="front" src="images/7.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Education</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque vel
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque
+                            vel
                             perferendis ratione itaque. </p>
                     </div>
                     <img class="right" src="images/8.jpg" alt="">
@@ -1772,7 +2047,8 @@
                     <img class="front" src="images/6.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Education</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque vel
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi voluptatem, doloremque
+                            vel
                             perferendis ratione itaque. </p>
                     </div>
                     <img class="right" src="images/7.jpg" alt="">
@@ -1784,7 +2060,9 @@
         </div>
     </section>
     <section id="hallOfFame" class="hallOfFame">
-        <div class="h-title">Hall Of Fame</div>
+        <div class="h-title">HALL OF FAME</div>
+        <div class="h-sub-title">"It doesn't matter how many times you win an award, it is always very special."
+        </div>
         <div class="container">
             <div class="card">
                 <img src="images/9.jpg">
@@ -1815,7 +2093,14 @@
         <div class="faqs">
             <div class="left">
                 <div class="faq-block">
-                    <div class="accordion">Does my transcript count as official?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            Does my transcript count as official?
+                        </div>
+                        <div class="answer-glimpse">
+                            Transcripts must be sent in by your school counselor... Read More
+                        </div>
+                    </div>
                     <div class="panel">
                         <p>Transcripts must be sent in by your school counselor or another school representative to
                             fulfill our requirements for an official transcript. This applies for high school and
@@ -1823,40 +2108,81 @@
                     </div>
                 </div>
                 <div class="faq-block">
-                    <div class="accordion">How do I send in my transcript?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            How do I send in my transcript?
+                        </div>
+                        <div class="answer-glimpse">
+                            All transcripts must be submitted by a school counselor... Read More
+                        </div>
+                    </div>
                     <div class="panel">
-                        <p>All transcripts must be submitted by a school counselor or another school representative to
+                        <p>All transcripts must be submitted by a school counselor or another school representative
+                            to
                             be considered official. This applies for high school and college transcripts.</p>
                     </div>
                 </div>
                 <div class="faq-block">
-                    <div class="accordion">How do I apply to MIT through QuestBridge?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            How do I apply to MIT through QuestBridge?
+                        </div>
+                        <div class="answer-glimpse">
+                            If you’re applying to MIT through QuestBridge College... Read More
+                        </div>
+                    </div>
                     <div class="panel">
-                        <p>If you’re applying to MIT through QuestBridge College Match, simply complete and submit the
+                        <p>If you’re applying to MIT through QuestBridge College Match, simply complete and submit
+                            the
                             QuestBridge Match application.</p>
                     </div>
                 </div>
             </div>
             <div class="right">
                 <div class="faq-block">
-                    <div class="accordion">What is the MIT QuestBridge Supplement?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            What is the MIT QuestBridge Supplement?
+                        </div>
+                        <div class="answer-glimpse">
+                            Our MIT QuestBridge Supplement is a way for us to... Read More
+                        </div>
+                    </div>
                     <div class="panel">
-                        <p>Our MIT QuestBridge Supplement is a way for us to gather some additional information on our
+                        <p>Our MIT QuestBridge Supplement is a way for us to gather some additional information on
+                            our
                             QuestBridge applicants. </p>
                     </div>
                 </div>
                 <div class="faq-block">
-                    <div class="accordion">Can I take November tests for the Match?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            Can I take November tests for the Match?
+                        </div>
+                        <div class="answer-glimpse">
+                            October is the last test date for QuestBridge... Read More
+                        </div>
+                    </div>
                     <div class="panel">
-                        <p>October is the last test date for QuestBridge Finalists to complete the required testing to
+                        <p>October is the last test date for QuestBridge Finalists to complete the required testing
+                            to
                             be considered for the College Match at MIT. </p>
                     </div>
                 </div>
                 <div class="faq-block">
-                    <div class="accordion">What happens if I’m not selected as a Match?</div>
+                    <div class="accordion">
+                        <div class="question">
+                            What happens if I’m not selected as a Match?
+                        </div>
+                        <div class="answer-glimpse">
+                            All QuestBridge College Match results are announced in... Read More
+                        </div>
+                    </div>
                     <div class="panel">
-                        <p>All QuestBridge College Match results are announced in early December. At that time, there
-                            are three things that could happen: You could be matched with a binding school and must…</p>
+                        <p>All QuestBridge College Match results are announced in early December. At that time,
+                            there
+                            are three things that could happen: You could be matched with a binding school and must…
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1864,11 +2190,82 @@
 
     </section>
     <section id="footer" class="footer">
-        <p>© Infy Springboard | 2021</p>
+        <div class="left">
+            <div class="address-head">Address:</div>
+            <div class="address-para">
+                21, North Habbala St. <br>
+                Hootagalli, Mysore <br>
+                Pin- 570006
+            </div>
+        </div>
+        <div class="center">
+            <div class="head">Quick Links</div>
+            <div class="links">
+                <div class="link" onclick="goTo('aboutUs')">About Us</div>
+                <div class="link" onclick="goTo('academics')">Academics</div>
+                <div class="link" onclick="goTo('facilities')">Facilities</div>
+                <div class="link" onclick="goTo('trending')">Trending</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">
+                <a href="#">
+                    Mysore Intitute of Technology
+                </a>
+            </div>
+            <div class="contact">
+                <div class="icon">
+                    <div class="material-icons material-icons-outlined">
+                        email
+                    </div> &nbsp; contact@mit.edu
+                </div>
+
+                <div class="icon">
+                    <div class="material-icons material-icons-outlined">
+                        phone
+                    </div> &nbsp; +91 000-000-0000
+                </div>
+            </div>
+            <div class="icons">
+                <div class="icon">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16">
+                        <path
+                            d="M7.2 16v-7.5h-2v-2.7h2c0 0 0-1.1 0-2.3 0-1.8 1.2-3.5 3.9-3.5 1.1 0 1.9 0.1 1.9 0.1l-0.1 2.5c0 0-0.8 0-1.7 0-1 0-1.1 0.4-1.1 1.2 0 0.6 0-1.3 0 2h2.9l-0.1 2.7h-2.8v7.5h-2.9z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="icon"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram"
+                        class="svg-inline--fa fa-instagram fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512" width="16px" height="16px">
+                        <path
+                            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                        </path>
+                    </svg></div>
+                <div class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M16 3c-0.6 0.3-1.2 0.4-1.9 0.5 0.7-0.4 1.2-1 1.4-1.8-0.6 0.4-1.3 0.6-2.1 0.8-0.6-0.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 0.3 0 0.5 0.1 0.7-2.7-0.1-5.2-1.4-6.8-3.4-0.3 0.5-0.4 1-0.4 1.7 0 1.1 0.6 2.1 1.5 2.7-0.5 0-1-0.2-1.5-0.4 0 0 0 0 0 0 0 1.6 1.1 2.9 2.6 3.2-0.3 0.1-0.6 0.1-0.9 0.1-0.2 0-0.4 0-0.6-0.1 0.4 1.3 1.6 2.3 3.1 2.3-1.1 0.9-2.5 1.4-4.1 1.4-0.3 0-0.5 0-0.8 0 1.5 0.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3 0-0.1 0-0.3 0-0.4 0.7-0.5 1.3-1.1 1.7-1.8z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </div>
     </section>
 </body>
-
 <script>
+
+    function goTo(section) {
+        var elmnt = document.getElementById(section);
+        elmnt.scrollIntoView();
+    }
+
+    function theme_set(color) {
+        console.log('ccc', color);
+        document.documentElement.style.cssText = color;
+    }
+
     function toggleNav() {
         var x = document.getElementById("mob-nav-links");
         if (x.style.display === 'flex') {
@@ -1901,10 +2298,14 @@
         acc[i].addEventListener("click", function () {
             this.classList.toggle("active");
             var panel = this.nextElementSibling;
+            var answer = this.childNodes[3];
+            console.log(answer);
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
+                answer.style.display = 'block';
             } else {
                 panel.style.maxHeight = panel.scrollHeight + "px";
+                answer.style.display = 'none';
             }
         });
     }
