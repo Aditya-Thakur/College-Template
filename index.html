@@ -23,6 +23,7 @@
             --bg-start: rgba(0, 0, 0, 0.22);
             --bg-end: rgba(255, 255, 255, 0.25);
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background-color: white;
@@ -107,18 +108,19 @@
             margin: 3px 10px;
             font-weight: 900;
             height: 30px;
+            flex-wrap: wrap;
         }
 
         .navadi .right {
             display: flex;
         }
 
-        .navadi .right .navadi-link a {
+        .navadi .navadi-link a {
             text-decoration: none;
             color: #000;
         }
 
-        .navadi .right .navadi-link,
+        .navadi .navadi-link,
         .dropdown {
             align-items: center;
             background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
@@ -135,7 +137,7 @@
             height: 30px;
         }
 
-        .navadi .right .navadi-link:hover,
+        .navadi .navadi-link:hover,
         .dropdown:hover {
             background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
             box-shadow: var(--h1) var(--v1) var(--color-dark),
@@ -144,7 +146,7 @@
             color: white;
         }
 
-        .navadi .right .navadi-link a:hover {
+        .navadi .navadi-link a:hover {
             color: white;
         }
 
@@ -171,6 +173,54 @@
             background-color: var(--primary-color);
 
         }
+
+        .mob-view {
+            display: none;
+        }
+
+        /* ================================= 
+  Media Queries
+==================================== */
+
+        @media (max-width: 769px) {
+            .mob-view {
+                display: flex;
+            }
+
+            .navadi .right {
+                display: none;
+            }
+
+            .mob-view .menu {
+                position: relative;
+            }
+
+            #menu-open {
+                display: none;
+            }
+
+            .mob-view .items {
+                right: 1px;
+                display: none;
+                position: absolute;
+                padding: 12px 16px;
+                z-index: 10;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 200px;
+                top: 60px;
+                transition: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            .mob-view .menu:hover {
+                color: white;
+            }
+
+        }
+
+        /* ================================= 
+  Media Queries End
+==================================== */
 
         .banner {
             padding: 0 0px 0 20px;
@@ -209,6 +259,8 @@
         .about-us {
             padding: 6px 10px;
             display: flex;
+            flex-wrap: wrap;
+            width: 100%;
         }
 
         .about-us .about-title {
@@ -216,7 +268,7 @@
             width: 100%;
             font-weight: bold;
             color: var(--primary-color);
-            font-size: 90px;
+            font-size: 5em;
             padding-left: 15px;
             cursor: pointer;
         }
@@ -244,7 +296,7 @@
         }
 
         .about-us .about-text {
-            width: 50%;
+            width: 48%;
         }
 
         .about-us .about-text .big-text {
@@ -262,43 +314,68 @@
             padding-left: 10px;
         }
 
-        .about-facts {
+        .about-us .about-facts {
             z-index: 10;
             padding-top: 5px;
             padding-left: 40px;
-            width: 50%;
+            width: 48%;
         }
 
-        .about-facts .facts-title {
+        .about-us .about-facts .facts-title {
             border-top: 3px solid var(--primary-color);
             font-size: 26px;
             padding-top: 15px;
         }
 
-        .about-facts .facts-section {
+        .about-us .about-facts .facts-section {
             padding-top: 10px;
         }
 
-        .about-facts .facts-section .fact-section-title {
+        .about-us .about-facts .facts-section .fact-section-title {
             font-weight: bold;
             font-size: 18px;
         }
 
-        .about-facts .facts-section .fact-section-value {
+        .about-us .about-facts .facts-section .fact-section-value {
             display: flex;
             justify-content: space-between;
             padding-left: 10px;
             border-bottom: 1px dotted var(--primary-color);
         }
 
-        .about-facts .facts-section .fact-section-value:hover {
+        .about-us .about-facts .facts-section .fact-section-value:hover {
             font-weight: bold;
         }
 
-        .about-facts .facts-section .fact-section-value .fact-key,
-        .about-facts .facts-section .fact-section-value .fact-value {
+        .about-us .about-facts .facts-section .fact-section-value .fact-key,
+        .about-us .about-facts .facts-section .fact-section-value .fact-value {
             font-size: 18px;
         }
+
+
+        /* ================================= 
+  Media Queries
+==================================== */
+
+        @media (max-width: 769px) {
+            .about-us .about-title {
+                font-size: 2.5em;
+            }
+
+            .about-us .about-text {
+                width: 95%;
+            }
+
+            .about-us .about-facts {
+                width: 95%;
+                padding: 0;
+                padding-bottom: 140px;
+            }
+        }
+
+        /* ================================= 
+  Media Queries End
+==================================== */
 
         .academics-top {
             padding-top: -210px;
@@ -345,7 +422,8 @@
         .academics .academics-title:hover,
         .facilities .f-title:hover,
         .gallery .g-title:hover,
-        .upcoming .t-title:hover {
+        .upcoming .t-title:hover,
+        .faq .f-title:hover {
             color: white;
         }
 
@@ -354,6 +432,7 @@
             display: flex;
             justify-content: space-around;
             padding: 6px 10px;
+            flex-wrap: wrap;
         }
 
         .academics .academics-cards .card__face:hover {
@@ -477,10 +556,25 @@
             transform: rotateY(180deg);
         }
 
+        /* ================================= 
+  Media Queries
+==================================== */
+
+        @media (max-width: 769px) {
+            .academics {
+                padding-bottom: 200px;
+            }
+        }
+
+        /* ================================= 
+  Media Queries End
+==================================== */
+
         .facilities .collections {
             padding: 6px 10px;
             background-color: var(--primary-color);
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
         }
 
@@ -550,7 +644,9 @@
             text-align: left;
             padding: 20px;
             position: absolute;
-            background: var(--primary-color);
+            color: #000;
+            font-weight: bold;
+            /* background: var(--primary-color); */
             top: 50%;
             transform: translateY(-50%);
         }
@@ -564,18 +660,7 @@
 
         .gallery {
             background-color: var(--primary-color);
-            padding: 6px 10px;
-        }
-
-        .gallery .container,
-        .gallery .content {
-            margin: auto;
-        }
-
-        .gallery .container {
-            width: 94.02985075%;
-            max-width: 1260px;
-            padding: 0 2.25em 4em;
+            padding: 0px 10px 6px 10px;
         }
 
         .gallery .cube-container {
@@ -589,9 +674,8 @@
 
         .gallery .photo-desc {
             font-size: .85em;
-            color: rgb(0, 0, 0);
-            padding: 1.1em 1em 0;
-            background: var(--primary-color);
+            color: rgb(255, 255, 255);
+            background: rgba(0, 55, 80, 0.842);
         }
 
         /* ---- Float clearfix ---- */
@@ -633,7 +717,8 @@
 ==================================== */
 
         .gallery .cube-container {
-            box-shadow: 0 18px 40px 5px rgba(0, 0, 0, .4);
+            /* box-shadow: 0 18px 40px 5px var(--color-dark); */
+            box-shadow: 10px 40px 50px 20px rgba(0, 0, 0, 0.712);
             perspective: 800px;
         }
 
@@ -683,6 +768,10 @@
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
+        }
+
+        .upcoming .marquee span {
+            display: flex;
         }
 
         .upcoming .orb {
@@ -738,7 +827,7 @@
             overflow: hidden;
             box-sizing: border-box;
             position: relative;
-            margin: 16px auto;
+            margin: 0 0;
         }
 
         .upcoming .marquee--inner {
@@ -751,6 +840,14 @@
 
         .upcoming .marquee--inner:hover {
             animation-play-state: paused;
+        }
+
+        .upcoming .marquee .orb a {
+            text-decoration: underline;
+            color: blue;
+        }
+        .upcoming .marquee .orb a:hover {
+            color: white;
         }
 
         /*.half {
@@ -842,7 +939,13 @@
 
         .faq .faqs {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-evenly;
+        }
+
+        .faq .faqs .left,
+        .faq .faqs .right {
+            width: 48%;
         }
 
         .faq .faqs .faq-block {
@@ -852,12 +955,11 @@
                 var(--h2) var(--v2) var(--color-light) inset;
             border-radius: 25px;
             justify-content: center;
-            padding: 8px 20px;
+            /* padding: 8px 20px; */
             margin: 30px 10px;
             font-weight: bold;
             color: rgb(53, 53, 53);
             background-color: var(--primary-color);
-            width: 550px;
         }
 
         .faq .accordion {
@@ -890,6 +992,22 @@
             transition: max-height 0.2s ease-out;
         }
 
+        /* ================================= 
+  Media Queries
+==================================== */
+
+        @media (max-width: 769px) {
+
+            .faq .faqs .left,
+            .faq .faqs .right {
+                width: 95%;
+            }
+        }
+
+        /* ================================= 
+  Media Queries End
+==================================== */
+
         .footer {
             padding: 1px 10px;
             background-color: var(--primary-color);
@@ -901,6 +1019,7 @@
     </style>
 
 </head>
+
 <body>
     <section id="navadi" class="navadi">
         <div class="left rainbow">
@@ -923,11 +1042,37 @@
                 </div>
             </div>
         </div>
+        <div class="mob-view">
+            <div id="menu-closed" class="navadi-link menu">
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <div class="material-icons material-icons-outlined">
+                        menu
+                    </div>
+                </a>
+            </div>
+            <div id="menu-open" class="navadi-link menu">
+                <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+                    <div class="material-icons material-icons-outlined">
+                        menu_open
+                    </div>
+                </a>
+            </div>
+            <div id="mob-nav-links" class="items">
+                <div class="navadi-link"> <a href="#aboutUs"> About Us </a></div>
+                <div class="navadi-link"> <a href="#academics">Academics</a> </div>
+                <div class="navadi-link"> <a href="#facilities">Facilities</a> </div>
+                <div class="navadi-link"> <a href="#trending">Trending</a> </div>
+                <div class="navadi-link"> <a href="#gallery">Gallery</a></div>
+                <div class="navadi-link"> <a href="#hallOfFame">Hall Of Fame</a></div>
+                <div class="navadi-link"> <a href="#faq">FAQ</a> </div>
+            </div>
+        </div>
+        </div>
     </section>
     <section id="banner" class="banner">
         <div class="banner-image">
             <svg id="e7b3b0c3-1e4f-480c-906c-c03021e90d10" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                width="991.13988" height="770.17774" viewBox="0 0 991.13988 770.17774">
+                height="700" width="100%" viewBox="0 0 991.13988 770.17774">
                 <path
                     d="M394.01076,64.91113,236.15757,150.41336a40.156,40.156,0,1,1-70.5866,38.23373l-53.82344,29.15382L251.16683,475.1951,533.43006,322.30535Z"
                     transform="translate(-104.43006 -64.91113)" fill="#f2f2f2" />
@@ -1177,25 +1322,25 @@
                             <div class="content">
                                 <ul>
                                     <li>
-                                        <a href="#"> Departments by School </a>
+                                        <a href="javascript:void(0);"> Departments by School </a>
                                     </li>
                                     <li>
-                                        <a href="#">School of Architecture and Planning</a>
+                                        <a href="javascript:void(0);">School of Architecture and Planning</a>
                                     </li>
                                     <li>
-                                        <a href="#">School of Engineering</a>
+                                        <a href="javascript:void(0);">School of Engineering</a>
                                     </li>
                                     <li>
-                                        <a href="#">School of Humanities, Arts, and Social Sciences</a>
+                                        <a href="javascript:void(0);">School of Humanities, Arts, and Social Sciences</a>
                                     </li>
                                     <li>
-                                        <a href="#">MIT Sloan School of Management</a>
+                                        <a href="javascript:void(0);">MIT Sloan School of Management</a>
                                     </li>
                                     <li>
-                                        <a href="#">School of Science</a>
+                                        <a href="javascript:void(0);">School of Science</a>
                                     </li>
                                     <li>
-                                        <a href="#">MIT Bangalore College of Computing</a>
+                                        <a href="javascript:void(0);">MIT Bangalore College of Computing</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1223,26 +1368,26 @@
                             <div class="content">
                                 <ul>
                                     <li>
-                                        <a href="#">Registrar’s Office</a>
+                                        <a href="javascript:void(0);">Registrar’s Office</a>
                                     </li>
                                     <li>
-                                        <a href="#">Course Catalog (MIT Bulletin)</a>
+                                        <a href="javascript:void(0);">Course Catalog (MIT Bulletin)</a>
                                     </li>
                                     <li>
-                                        <a href="#">Office of the First Year</a>
+                                        <a href="javascript:void(0);">Office of the First Year</a>
                                     </li>
                                     <li>
-                                        <a href="#">Office of Graduate Education</a>
+                                        <a href="javascript:void(0);">Office of Graduate Education</a>
                                     </li>
                                     <li>
-                                        <a href="#">Office of Experiential Learning
+                                        <a href="javascript:void(0);">Office of Experiential Learning
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">Student Resources</a>
+                                        <a href="javascript:void(0);">Student Resources</a>
                                     </li>
                                     <li>
-                                        <a href="#">Teaching + Learning Lab</a>
+                                        <a href="javascript:void(0);">Teaching + Learning Lab</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1272,25 +1417,25 @@
                             <div class="content">
                                 <ul>
                                     <li>
-                                        <a href="#">MITx</a>
+                                        <a href="javascript:void(0);">MITx</a>
                                     </li>
                                     <li>
-                                        <a href="#">First-year STEM Classes from MIT</a>
+                                        <a href="javascript:void(0);">First-year STEM Classes from MIT</a>
                                     </li>
                                     <li>
-                                        <a href="#">OpenCourseWare</a>
+                                        <a href="javascript:void(0);">OpenCourseWare</a>
                                     </li>
                                     <li>
-                                        <a href="#">MITx Micromasters</a>
+                                        <a href="javascript:void(0);">MITx Micromasters</a>
                                     </li>
                                     <li>
-                                        <a href="#">Open Learning</a>
+                                        <a href="javascript:void(0);">Open Learning</a>
                                     </li>
                                     <li>
-                                        <a href="#">Residential Digital Innovations</a>
+                                        <a href="javascript:void(0);">Residential Digital Innovations</a>
                                     </li>
                                     <li>
-                                        <a href="#">Podcasts</a>
+                                        <a href="javascript:void(0);">Podcasts</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1317,19 +1462,19 @@
                             <div class="content">
                                 <ul>
                                     <li>
-                                        <a href="#">Professional & Executive Learning</a>
+                                        <a href="javascript:void(0);">Professional & Executive Learning</a>
                                     </li>
                                     <li>
-                                        <a href="#">MIT Professional Education – School of Engineering</a>
+                                        <a href="javascript:void(0);">MIT Professional Education – School of Engineering</a>
                                     </li>
                                     <li>
-                                        <a href="#">Sloan School of Management Executive Education</a>
+                                        <a href="javascript:void(0);">Sloan School of Management Executive Education</a>
                                     </li>
                                     <li>
-                                        <a href="#">MIT xPRO</a>
+                                        <a href="javascript:void(0);">MIT xPRO</a>
                                     </li>
                                     <li>
-                                        <a href="#">Bootcamps</a>
+                                        <a href="javascript:void(0);">Bootcamps</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1401,7 +1546,7 @@
                         <p>
                             MIT’s Department of Athletics, Physical Education, and Recreation offers sports instruction
                             and participation at all levels.
-                      </p>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1469,7 +1614,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Posted a new blog on <a href="#">Glassmorphism</a>
+                                Posted a new blog on <a href="javascript:void(0);">Glassmorphism</a>
                             </p>
                         </div>
                     </div>
@@ -1483,7 +1628,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Initiated a course on <a href="#">IOT in-campus projects</a>
+                                Initiated a course on <a href="javascript:void(0);">IOT in-campus projects</a>
                             </p>
                         </div>
                     </div>
@@ -1497,7 +1642,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Got first rank in <a href="#">Robotics Programming Workshop</a>
+                                Got first rank in <a href="javascript:void(0);">Robotics Programming Workshop</a>
                             </p>
                         </div>
                     </div>
@@ -1513,7 +1658,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Grabbed Educator of the year award. <a href="#">Congratulate</a>
+                                Grabbed Educator of the year award. <a href="javascript:void(0);">Congratulate</a>
                             </p>
                         </div>
                     </div>
@@ -1527,7 +1672,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Hackathon result announced. <a href="#">Check Winners</a>
+                                Hackathon result announced. <a href="javascript:void(0);">Check Winners</a>
                             </p>
                         </div>
                     </div>
@@ -1541,7 +1686,7 @@
                         </div>
                         <div class="right">
                             <p>
-                                Posted a new blog on <a href="#">Glassmorphism</a>
+                                Posted a new blog on <a href="javascript:void(0);">Glassmorphism</a>
                             </p>
                         </div>
                     </div>
@@ -1558,7 +1703,6 @@
 
             <div class="cube-container">
                 <div class="photo-cube">
-
                     <img class="front" src="images/1.jpg" alt="">
                     <div class="back photo-desc">
                         <h3>Arts</h3>
@@ -1566,7 +1710,6 @@
                     </div>
                     <img class="left" src="images/2.jpg" alt="">
                     <img class="right" src="images/3.jpg" alt="">
-
                 </div>
             </div>
 
@@ -1592,7 +1735,6 @@
                     </div>
                     <img class="right" src="images/8.jpg" alt="">
                     <img class="left" src="images/9.jpg" alt="">
-
                 </div>
             </div>
 
@@ -1699,19 +1841,22 @@
                 <div class="faq-block">
                     <div class="accordion">What is the MIT QuestBridge Supplement?</div>
                     <div class="panel">
-                        <p>Our MIT QuestBridge Supplement is a way for us to gather some additional information on our QuestBridge applicants. </p>
+                        <p>Our MIT QuestBridge Supplement is a way for us to gather some additional information on our
+                            QuestBridge applicants. </p>
                     </div>
                 </div>
                 <div class="faq-block">
                     <div class="accordion">Can I take November tests for the Match?</div>
                     <div class="panel">
-                        <p>October is the last test date for QuestBridge Finalists to complete the required testing to be considered for the College Match at MIT. </p>
+                        <p>October is the last test date for QuestBridge Finalists to complete the required testing to
+                            be considered for the College Match at MIT. </p>
                     </div>
                 </div>
                 <div class="faq-block">
                     <div class="accordion">What happens if I’m not selected as a Match?</div>
                     <div class="panel">
-                        <p>All QuestBridge College Match results are announced in early December. At that time, there are three things that could happen: You could be matched with a binding school and must…</p>
+                        <p>All QuestBridge College Match results are announced in early December. At that time, there
+                            are three things that could happen: You could be matched with a binding school and must…</p>
                     </div>
                 </div>
             </div>
@@ -1724,6 +1869,26 @@
 </body>
 
 <script>
+    function toggleNav() {
+        var x = document.getElementById("mob-nav-links");
+        if (x.style.display === 'flex') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'flex';
+        }
+
+        var menu1 = document.getElementById("menu-closed");
+        var menu2 = document.getElementById("menu-open");
+
+        if (menu1.style.display === 'none') {
+            menu1.style.display = 'block';
+            menu2.style.display = 'none';
+        } else {
+            menu2.style.display = 'block';
+            menu1.style.display = 'none';
+        }
+    }
+
     function toggleCard(id) {
         var card = document.getElementById(id);
         card.classList.toggle('is-flipped');
