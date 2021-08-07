@@ -1,8 +1,8 @@
 :root {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    /* --primary-color: #84B9FF; */
-    --primary-color: #FF84A9;
+     --primary-color: #84B9FF; 
+  /*  --primary-color: #FF84A9; */
     --secondary-color: black;
     --hover-color: white;
     --h1: 12px 12px;
