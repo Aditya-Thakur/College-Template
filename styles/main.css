@@ -1206,7 +1206,7 @@ Media Queries End
         .footer .center .links .link:hover {
             text-decoration: underline;
             cursor: pointer;
-            color: white;
+            color:  var(--hover-color);
         }
 
         .footer .right .contact .icon {
@@ -1222,7 +1222,7 @@ Media Queries End
 
         .footer .right .icons .icon {
             margin-right: 20px;
-            border: 1px solid black;
+            border: 1px solid var(--secondary-color);
             padding: 6px;
             border-radius: 5px;
             width: 25px;
@@ -1234,40 +1234,40 @@ Media Queries End
 
 
         .footer .right .contact .icon:hover {
-            color: white;
+            color:  var(--hover-color);
             cursor: pointer;
         }
 
         .footer .right .icons .fa-icon:hover {
-            color: white;
-            fill: white;
+            color: var(--hover-color);
+            fill:  var(--hover-color);
             cursor: pointer;
             background-color: #3b5998;
             border-color: white;
         }
         .footer .right .icons .in-icon:hover {
-            color: white;
-            fill: white;
+            color:  var(--hover-color);
+            fill:  var(--hover-color);
             cursor: pointer;
             background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-            border-color: white;
+            border-color:  var(--hover-color);
         }
         .footer .right .icons .tw-icon:hover {
-            color: white;
-            fill: white;
+            color:  var(--hover-color);
+            fill: var(--hover-color);
             cursor: pointer;
             background-color: #00acee;
-            border-color: white;
+            border-color: var(--hover-color);
         }
 
         .footer .right .title a {
             text-decoration: none;
-            color: black;
+             color: var(--secondary-color);
         }
 
         .footer .right .title a:hover {
             text-decoration: underline;
-            color: white;
+            color: var(--hover-color);
         }
 
         .footer .left, .footer .right, .footer .center {
