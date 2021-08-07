@@ -1305,6 +1305,7 @@ Media Queries End
     display: flex;
     justify-content: space-between;    
     border-radius: 25px;
+    color: var(--secondary-color);
   }
 
   .colorBox {
