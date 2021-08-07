@@ -1162,71 +1162,121 @@ Media Queries
 Media Queries End
 ==================================== */
 
-.footer {
-    color: var(--secondary-color);
-    padding: 10px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: var(--primary-color);
-}
 
-.footer .left .address-head,
-.footer .center .head {
-    color: var(--secondary-color);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
+        .footer {
+            padding: 10px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+            /* align-items: center; */
+            background-color: var(--primary-color);
+        }
 
-.footer .left .address-para {
-    font-size: 1rem;
-}
+        .footer .left, .footer .center, .footer .right {
+            /* flex-grow: 1;
+            flex: 1 1 0px; */
+        }
 
-.footer .left .address-para:hover,
-.footer .center .links .link:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: var(--hover-color);
-}
+        .footer .left .address-head,
+        .footer .center .head,
+        .footer .right .title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
 
-.footer .right .contact .icon {
-    color: var(--secondary-color);
-    padding: 6px 10px;
-    display: flex;
-    align-items: center;
-}
+        .footer .left .address-para {
+            font-size: 1rem;
+        }
 
-.footer .right .icons {
-    color: var(--secondary-color);
-    padding: 6px;
-    display: flex;
-    justify-content: space-between;
-}
+        .footer .center {
+            width: 150px;
+            text-align: center;
+        }
 
-.footer .right .icons .icon:hover,
-.footer .right .contact .icon:hover {
-    color: var(--hover-color);
-    fill: var(--hover-color);
-    cursor: pointer;
-}
+        .footer .center .links{
+            display: flex;
+            flex-direction: column;
+            height: 70%;
+            text-align: center;
+            justify-content: space-around;
+        }
 
-.footer .right .title a {
-    text-decoration: none;
-    color: var(--secondary-color);
-}
+        .footer .left .address-para:hover,
+        .footer .center .links .link:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: white;
+        }
 
-.footer .right .title a:hover {
-    text-decoration: underline;
-    color: var(--hover-color);
-}
+        .footer .right .contact .icon {
+            padding: 6px 0px;
+            display: flex;
+            align-items: center !important;
+        }
 
-.footer .left, .footer .center, .footer .right {
-    box-shadow: var(--h1) var(--v1) var(--color-dark),
-        var(--h2) var(--v2) var(--color-light);
-    border-radius: 25px;
-    padding: 8px 20px;
-    margin: 3px 10px;
-}
+        .footer .right .icons {
+            padding: 6px;
+            display: flex;
+        }
+
+        .footer .right .icons .icon {
+            margin-right: 20px;
+            border: 1px solid black;
+            padding: 6px;
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .footer .right .contact .icon:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        .footer .right .icons .fa-icon:hover {
+            color: white;
+            fill: white;
+            cursor: pointer;
+            background-color: #3b5998;
+            border-color: white;
+        }
+        .footer .right .icons .in-icon:hover {
+            color: white;
+            fill: white;
+            cursor: pointer;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            border-color: white;
+        }
+        .footer .right .icons .tw-icon:hover {
+            color: white;
+            fill: white;
+            cursor: pointer;
+            background-color: #00acee;
+            border-color: white;
+        }
+
+        .footer .right .title a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer .right .title a:hover {
+            text-decoration: underline;
+            color: white;
+        }
+
+        .footer .left, .footer .right, .footer .center {
+            border-radius: 25px;
+            padding: 8px 20px;
+            margin: 3px 10px;
+            box-shadow: var(--h1) var(--v1) var(--color-dark),
+                var(--h2) var(--v2) var(--color-light);
+        }
 
 /* The Modal (background) */
 .modal {
