@@ -345,6 +345,17 @@ Media Queries
 Media Queries End
 ==================================== */
 
+ .details {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+ }
+
+ .upcoming, .syllabus {
+     display: flex;
+     flex-direction: column;
+ }
+
 .about-us {
     padding: 6px 10px;
     display: flex;

@@ -1,0 +1,82 @@
+{
+    "upcomingClass": [
+        {
+            "day": "Today",
+            "timeTable": [
+                {
+                    "subject": "Humanities",
+                    "teacher": "R. A. Sinha",
+                    "time": "11.30 AM"
+                },
+                {
+                    "subject": "JAVA Programming",
+                    "teacher": "P. K. Aggrawal",
+                    "time": "12.10 PM"
+                },
+                {
+                    "subject": "Numerical Methods",
+                    "teacher": "Vanya Mehrotra",
+                    "time": "12.50 PM"
+                }
+            ]
+        },
+        {
+            "day": "Tomorrow",
+            "timeTable": [
+                {
+                    "subject": "Humanities",
+                    "teacher": "R. A. Sinha",
+                    "time": "11.30 AM"
+                },
+                {
+                    "subject": "JAVA Programming",
+                    "teacher": "P. K. Aggrawal",
+                    "time": "12.10 PM"
+                },
+                {
+                    "subject": "Numerical Methods",
+                    "teacher": "Vanya Mehrotra",
+                    "time": "12.50 PM"
+                }
+            ]
+        }
+    ],
+    "teachers" : [
+        "R. A. Sinha",
+        "Lakshmi Raghavan",
+        "Apurva Vaidya",
+        "P. K. Aggrawal",
+        "Richa Karnik",
+        "Chiranjivi Prabhakar",
+        "Vanya Mehrotra"
+    ],
+    "subjects": [
+        "Java Programming",
+        "Mathematics",
+        "Cyber Security",
+        "Networking",
+        "Humanities",
+        "Numerical Methods",
+        "Operating Systems",
+        "Database & Information System",
+        "Data Structure & Algorithms",
+        "Computer Architecture"
+    ],
+    "todos": [
+       {
+           "subject": "Humanities",
+           "todo":"Assignment",
+           "before":"8 PM tonight"
+       },
+       {
+           "subject": "Numerical Methods",
+           "todo":"Lab Report",
+           "before":"2PM Tuesday"
+       },
+       {
+           "subject": "Computer Architecture",
+           "todo":"Analysis Report",
+           "before":"10AM Monday"
+       }
+    ]
+}
